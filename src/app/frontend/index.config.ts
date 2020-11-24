@@ -75,4 +75,8 @@ export const AVAILABLE_LANGUAGES: LANGUAGE[] = [
     label: '香港中文',
     value: 'zh-Hant-HK',
   },
+  {
+    label: 'فارسی',
+    value: 'fa',
+  },
 ];
