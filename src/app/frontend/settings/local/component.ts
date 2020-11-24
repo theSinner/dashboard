@@ -18,39 +18,11 @@ import {Subject} from 'rxjs';
 import {CookieService} from 'ngx-cookie-service';
 import {LocalSettingsService} from '../../common/services/global/localsettings';
 import {MatSelect} from '@angular/material/select';
+import {AVAILABLE_LANGUAGES} from '../../index.config';
 @Component({selector: 'kd-local-settings', templateUrl: './template.html'})
 export class LocalSettingsComponent implements OnInit {
   settings: LocalSettings = {} as LocalSettings;
-  languages: any[] = [
-    {
-      label: 'Deutsche',
-      value: 'de',
-    },
-    {
-      label: 'English',
-      value: 'en',
-    },
-    {
-      label: '日本語',
-      value: 'ja',
-    },
-    {
-      label: '한국어',
-      value: 'ko',
-    },
-    {
-      label: '中文',
-      value: 'zh-Hans',
-    },
-    {
-      label: '台湾中文',
-      value: 'zh-Hant',
-    },
-    {
-      label: '香港中文',
-      value: 'zh-Hant-HK',
-    },
-  ];
+  languages: any[] = AVAILABLE_LANGUAGES;
 
   selectedLanguage: any;
 

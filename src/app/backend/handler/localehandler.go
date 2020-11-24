@@ -95,16 +95,18 @@ func (handler *LocaleHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) 
 		w.Header().Add("Cache-Control", "no-store")
 	}
 
-	acceptLanguage := os.Getenv("ACCEPT_LANGUAGE")
+	acceptLanguage := ""
 
-	if acceptLanguage == "" {
-		var cookie, err = r.Cookie("lang")
-		if err == nil {
-			acceptLanguage = cookie.Value
-		}
+	var cookie, err = r.Cookie("lang")
+	if err == nil {
+		acceptLanguage = cookie.Value
 	}
 
-	if acceptLanguage == "" {
+	if len(acceptLanguage) == 0 {
+		acceptLanguage = os.Getenv("ACCEPT_LANGUAGE")
+	}
+
+	if len(acceptLanguage) == 0 {
 		acceptLanguage = r.Header.Get("Accept-Language")
 	}
 
